@@ -1116,8 +1116,9 @@ footer .copy {
   .about-layout { grid-template-columns: 1fr; gap: 40px; }
   .about-figure { order: -1; }
   .contact-grid { grid-template-columns: 1fr; }
-  section { padding: 84px 0; }
+  section { padding: 84px 0 40px; }
   .hero { padding-top: 130px; }
+  footer { padding: 28px 0 24px; }
 }
 
 @media (max-width: 620px) {
