@@ -75,6 +75,25 @@
         <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </nav>
+    <button class="nav-toggle" id="nav-toggle"
+            aria-label="Navigation öffnen"
+            aria-expanded="false"
+            aria-controls="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="container">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#projekte">Projekte</a>
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#kontakt" class="btn">
+        Anfrage starten
+        <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
   </div>
 </header>
 
@@ -467,6 +486,41 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     items.forEach(function (el) { io.observe(el); });
+  })();
+
+  // --- hamburger menu toggle ---
+  (function () {
+    var header = document.getElementById('site-header');
+    var toggle = document.getElementById('nav-toggle');
+    var menu   = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+
+    function openMenu() {
+      header.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Navigation schließen');
+      menu.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeMenu() {
+      header.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Navigation öffnen');
+      menu.setAttribute('aria-hidden', 'true');
+    }
+
+    toggle.addEventListener('click', function () {
+      if (header.classList.contains('open')) closeMenu();
+      else openMenu();
+    });
+
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && header.classList.contains('open')) closeMenu();
+    });
   })();
 </script>
 
