@@ -1281,6 +1281,10 @@ footer .copy {
   .hamburger { display: flex; }
   .nav-cta { display: none; }
 
+  /* prevent bounce/rubber-band scroll on iOS and Android; also suppresses
+     pull-to-refresh on Android Chrome — intentional for a static marketing site */
+  html, body { overscroll-behavior: none; }
+
   /* show overlay and drawer on mobile */
   .mobile-overlay { display: block; }
   .mobile-drawer { display: flex; }
