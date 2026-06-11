@@ -481,7 +481,7 @@
     }
 
     function showSection(id) {
-      window.scrollTo({ top: 0, behavior: 'auto' });
+      window.scrollTo({ top: 0, behavior: 'instant' });
       sectionIds.forEach(function (sid) {
         var el = document.getElementById(sid);
         if (!el) return;
