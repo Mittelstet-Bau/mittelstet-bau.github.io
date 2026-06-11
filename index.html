@@ -517,7 +517,6 @@
       else { restoreDesktop(); }
     }, { passive: true });
 
-    // init on load
     if (isMobile()) { syncToHash(); }
   })();
 
@@ -554,7 +553,6 @@
       }
     });
 
-    // close drawer on section link click
     drawer.querySelectorAll('a[href^="#"]').forEach(function (a) {
       a.addEventListener('click', closeDrawer);
     });
@@ -572,26 +570,27 @@
 
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
       a.addEventListener('click', function (e) {
-        var id = this.getAttribute('href');
-        if (!id || id === '#') return;
-        var bare = id.replace('#', '');
+        var href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        var id = href.replace('#', '');
 
-        if (isMobile() && sectionIds.indexOf(bare) !== -1) {
+        if (isMobile() && sectionIds.indexOf(id) !== -1) {
           // mobile: let hashchange event handle section switching
           // (browser updates the hash; no smooth scroll needed)
           return;
         }
 
         var target;
-        try { target = document.querySelector(id); } catch (_) { return; }
+        try { target = document.querySelector(href); } catch (_) { return; }
         if (!target) return;
         e.preventDefault();
 
-        if (bare === 'kontakt') {
+        if (id === 'kontakt') {
           var mid = target.getBoundingClientRect().top + window.scrollY + target.offsetHeight / 2;
           window.scrollTo({ top: Math.max(0, mid - window.innerHeight / 2), behavior: 'smooth' });
         } else {
-          var top = target.getBoundingClientRect().top + window.scrollY - header.offsetHeight - GAP;
+          var padTop = parseFloat(getComputedStyle(target).paddingTop) || 0;
+          var top = target.getBoundingClientRect().top + window.scrollY + padTop - header.offsetHeight - GAP;
           window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
         }
       });
