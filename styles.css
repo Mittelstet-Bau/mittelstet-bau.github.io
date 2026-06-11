@@ -968,6 +968,36 @@ textarea {
 
 form .btn { margin-top: 6px; }
 
+/* Formspree feedback banners */
+.fs-banner {
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.fs-success {
+  border: 1px solid var(--gold);
+  background: rgba(231, 205, 143, 0.08);
+  color: var(--light);
+}
+
+.fs-error {
+  border: 1px solid rgba(220, 80, 80, 0.6);
+  background: rgba(220, 80, 80, 0.08);
+  color: var(--light);
+}
+
+.fs-field-error {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(220, 80, 80, 0.9);
+  margin-top: 5px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
 /* =============================================================
    FOOTER  (logo home — near-black so the logo's bg blends)
    ============================================================= */

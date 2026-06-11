@@ -387,17 +387,26 @@
 
         <div class="contact-box reveal" data-delay="1">
           <!--
-            Form posts to Formspree (zero backend). Replace {form-id} with the
-            real Formspree endpoint to receive submissions by e-mail.
+            Form delivered via Formspree (zero backend) using the @formspree/ajax
+            library. Submissions go to info@mittelstet-bau.de. The form ID
+            (mqeodvep) is a public endpoint identifier, not a secret.
           -->
-          <form action="https://formspree.io/f/your-form-id" method="POST">
+          <div data-fs-success class="fs-banner fs-success" style="display:none" role="alert">
+            <strong>Vielen Dank!</strong> Ihre Anfrage wurde gesendet. Wir melden uns bald.
+          </div>
+          <div data-fs-error class="fs-banner fs-error" style="display:none" role="alert">
+            <strong>Fehler.</strong> Bitte versuchen Sie es erneut oder schreiben Sie uns direkt.
+          </div>
+          <form id="contact-form" action="https://formspree.io/f/mqeodvep" method="POST">
             <div class="field">
               <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Ihr Name" required />
+              <input id="name" name="name" type="text" placeholder="Ihr Name" required data-fs-field aria-describedby="name-error" />
+              <span id="name-error" data-fs-error="name" class="fs-field-error"></span>
             </div>
             <div class="field">
               <label for="email">E-Mail</label>
-              <input id="email" name="email" type="email" placeholder="Ihre E-Mail-Adresse" required />
+              <input id="email" name="email" type="email" placeholder="Ihre E-Mail-Adresse" required data-fs-field aria-describedby="email-error" />
+              <span id="email-error" data-fs-error="email" class="fs-field-error"></span>
             </div>
             <div class="field">
               <label for="phone">Telefon (optional)</label>
@@ -405,9 +414,10 @@
             </div>
             <div class="field">
               <label for="message">Ihr Projekt</label>
-              <textarea id="message" name="message" placeholder="Worum geht es bei Ihrem Projekt?" required></textarea>
+              <textarea id="message" name="message" placeholder="Worum geht es bei Ihrem Projekt?" required data-fs-field aria-describedby="message-error"></textarea>
+              <span id="message-error" data-fs-error="message" class="fs-field-error"></span>
             </div>
-            <button class="btn btn--gold" type="submit">
+            <button class="btn btn--gold" type="submit" data-fs-submit-btn>
               Anfrage senden
               <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
@@ -416,6 +426,15 @@
       </div>
     </div>
   </section>
+
+  <!-- Formspree AJAX: wires #contact-form to endpoint mqeodvep (public ID, not a secret) -->
+  <script
+    src="https://unpkg.com/@formspree/ajax@1.1.5/dist/global.js"
+    integrity="sha384-9fQrvHz7unHjhv7e+pJqhvNxPV4tYHHsSn3PxBIEyPTGY8Q/PAKM1sfhL+zTYmhc"
+    crossorigin="anonymous"></script>
+  <script>
+    formspree('initForm', { formElement: '#contact-form', formId: 'mqeodvep' });
+  </script>
 
 </main>
 
