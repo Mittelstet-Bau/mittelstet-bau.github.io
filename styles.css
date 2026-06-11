@@ -597,6 +597,36 @@ section {
   font-size: 0.97rem;
 }
 
+/* featured service card — full-width, horizontal layout */
+.service-card--featured {
+  grid-column: 1 / -1;
+  flex-direction: row;
+}
+
+.service-card--featured .service-figure {
+  flex: 0 0 50%;
+  height: auto;
+  min-height: 300px;
+  border-bottom: none;
+  border-right: 1px solid var(--paper-line);
+}
+
+.service-card--featured .service-content {
+  padding: 2.5rem 3rem;
+  justify-content: center;
+  gap: 0;
+}
+
+.service-card--featured .service-content h3 {
+  font-size: 1.9rem;
+  margin-bottom: 14px;
+}
+
+.service-card--featured .service-content p {
+  font-size: 1.05rem;
+  max-width: 38ch;
+}
+
 /* =============================================================
    GALLERY  (architectural plates)
    ============================================================= */
@@ -1058,6 +1088,12 @@ footer .copy {
 
 @media (max-width: 620px) {
   .service-grid { grid-template-columns: 1fr; }
+  .service-card--featured { flex-direction: column; }
+  .service-card--featured .service-figure {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid var(--paper-line);
+  }
   .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 260px; }
   .plate-card.span-6,
   .plate-card.span-3,
