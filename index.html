@@ -98,12 +98,6 @@
     <a href="#ueber-uns" class="drawer-link">Über&nbsp;uns</a>
     <a href="#kontakt" class="drawer-link">Kontakt</a>
   </div>
-  <div class="drawer-actions">
-    <button class="btn btn--gold popupTrigger" type="button">
-      Newsletter
-      <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M3 8l9 5 9-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-    </button>
-  </div>
 </nav>
 
 <main id="top">
@@ -469,6 +463,7 @@
     }
 
     function showSection(id) {
+      window.scrollTo(0, 0);
       sectionIds.forEach(function (sid) {
         var el = document.getElementById(sid);
         if (!el) return;
