@@ -1280,6 +1280,7 @@ footer .copy {
   /* show hamburger, hide desktop nav CTA */
   .hamburger { display: flex; }
   .nav-cta { display: none; }
+  .hero-actions { display: none; }
 
   /* prevent bounce/rubber-band scroll on iOS and Android; also suppresses
      pull-to-refresh on Android Chrome — intentional for a static marketing site */
