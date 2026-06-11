@@ -786,28 +786,15 @@ section {
 }
 
 /* =============================================================
-   CONTACT  (dark / gold — home of the brand)
+   CONTACT  (light / gold — mirrors Leistungen)
    ============================================================= */
 .contact {
   background:
-    radial-gradient(120% 90% at 85% 0%, #221d17 0%, var(--ink-black) 60%);
-  color: var(--light);
-}
-
-.contact .section-head h2 {
-  color: var(--light);
-}
-
-.contact .section-head h2 em {
-  color: var(--gold-bright);
-}
-
-.contact .section-head > span {
-  color: var(--gold);
+    radial-gradient(120% 120% at 0% 0%, #fbf4ea 0%, var(--beige) 55%);
 }
 
 .contact .lead {
-  color: rgba(247, 241, 232, 0.66);
+  color: var(--gray);
 }
 
 .contact-grid {
@@ -827,8 +814,8 @@ section {
 }
 
 .contact-box {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(231, 205, 143, 0.16);
+  background: var(--white);
+  border: 1px solid var(--paper-line);
   border-radius: var(--radius);
   padding: 36px;
 }
@@ -839,13 +826,13 @@ section {
   align-items: center;
   gap: 16px;
   padding: 16px 0;
-  border-top: 1px solid rgba(231, 205, 143, 0.12);
-  color: rgba(247, 241, 232, 0.85);
+  border-top: 1px solid var(--paper-line);
+  color: var(--wood-dark);
   transition: color 0.2s var(--ease);
 }
 
 .contact-line:hover {
-  color: var(--gold-bright);
+  color: var(--gold);
 }
 
 .contact-line .ico {
@@ -855,8 +842,8 @@ section {
   display: grid;
   place-items: center;
   border-radius: 12px;
-  background: rgba(231, 205, 143, 0.1);
-  color: var(--gold-bright);
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  color: var(--gold);
 }
 
 .contact-line .ico svg { width: 20px; height: 20px; }
@@ -866,17 +853,17 @@ section {
   font-size: 0.66rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(247, 241, 232, 0.45);
+  color: var(--gray);
   display: block;
 }
 
 .contact-line .value {
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--light);
+  color: var(--wood-dark);
 }
 
-.contact-line:hover .value { color: var(--gold-bright); }
+.contact-line:hover .value { color: var(--gold); }
 
 /* boss portrait in contact box */
 .contact-person {
@@ -895,8 +882,8 @@ section {
   height: 150px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid rgba(231, 205, 143, 0.45);
-  box-shadow: 0 0 0 7px rgba(231, 205, 143, 0.1);
+  border: 3px solid var(--gold-soft);
+  box-shadow: 0 0 0 7px color-mix(in srgb, var(--gold) 12%, transparent);
   margin-bottom: 20px;
 }
 
@@ -911,7 +898,7 @@ section {
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 600;
-  color: var(--light);
+  color: var(--wood-dark);
   margin-bottom: 8px;
 }
 
@@ -935,30 +922,30 @@ form {
   font-size: 0.66rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(247, 241, 232, 0.55);
+  color: var(--gray);
   margin-bottom: 8px;
 }
 
 input, textarea {
   width: 100%;
-  border: 1px solid rgba(231, 205, 143, 0.18);
+  border: 1px solid var(--paper-line);
   border-radius: 14px;
   padding: 15px 16px;
   font: inherit;
   font-size: 0.98rem;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--light);
+  background: var(--white);
+  color: var(--wood-dark);
   transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
 }
 
 input::placeholder, textarea::placeholder {
-  color: rgba(247, 241, 232, 0.35);
+  color: var(--sand);
 }
 
 input:focus, textarea:focus {
   outline: none;
   border-color: var(--gold);
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--light);
 }
 
 textarea {
@@ -980,13 +967,13 @@ form .btn { margin-top: 6px; }
 .fs-success {
   border: 1px solid var(--gold);
   background: rgba(231, 205, 143, 0.08);
-  color: var(--light);
+  color: var(--wood-dark);
 }
 
 .fs-error {
   border: 1px solid rgba(220, 80, 80, 0.6);
   background: rgba(220, 80, 80, 0.08);
-  color: var(--light);
+  color: var(--wood-dark);
 }
 
 .fs-field-error {
