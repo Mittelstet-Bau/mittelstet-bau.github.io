@@ -146,28 +146,14 @@ header.scrolled {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
 }
 
-.brand .mark {
-  width: 30px;
-  height: 30px;
+.brand .nav-logo {
+  height: 44px;
+  width: auto;
   flex: none;
-  color: var(--gold);
-}
-
-.brand .wordmark {
-  font-family: var(--font-body);
-  font-weight: 800;
-  font-size: 1.2rem;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  color: var(--wood-dark);
-}
-
-.brand .wordmark b {
-  color: var(--gold);
-  font-weight: 800;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .nav-links {
@@ -986,29 +972,13 @@ form .btn { margin-top: 6px; }
 }
 
 /* =============================================================
-   FOOTER  (logo home — near-black so the logo's bg blends)
+   FOOTER
    ============================================================= */
 footer {
   background: var(--ink-black);
   color: rgba(247, 241, 232, 0.6);
   padding: 64px 0 40px;
   text-align: center;
-}
-
-/* The wrapper carries a dark background equal to the footer so the logo (whose
-   own background is near-black) can blend against a known tone *within this
-   stacking context*. `lighten` then drops everything darker than the footer,
-   leaving only the gold/charcoal marks — no visible rectangle. */
-footer .logo-home {
-  width: clamp(220px, 34vw, 300px);
-  margin: 0 auto 26px;
-  background: var(--ink-black);
-}
-
-footer .logo-home img {
-  width: 100%;
-  object-fit: contain;
-  mix-blend-mode: lighten;
 }
 
 footer .foot-links {
@@ -1124,7 +1094,6 @@ footer .copy {
   .trust-card, .contact-box { padding: 26px; }
   .hero-meta { gap: 26px; }
   .nav .btn { padding: 12px 18px; }
-  .brand .wordmark { font-size: 1.05rem; }
 }
 
 /* =============================================================
