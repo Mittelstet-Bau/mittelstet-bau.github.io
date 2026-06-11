@@ -149,11 +149,11 @@ header.scrolled {
 }
 
 .brand .nav-logo {
-  height: 44px;
+  height: 62px;
   width: auto;
   flex: none;
   object-fit: contain;
-  border-radius: 8px;
+  mix-blend-mode: multiply;
 }
 
 .nav-links {
