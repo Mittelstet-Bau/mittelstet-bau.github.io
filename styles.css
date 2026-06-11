@@ -1206,6 +1206,182 @@ footer .copy {
 }
 
 /* =============================================================
+   HAMBURGER
+   ============================================================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: none;
+  border: 1px solid rgba(138, 90, 54, 0.2);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+  flex: none;
+}
+
+.hamburger:hover {
+  background: rgba(138, 90, 54, 0.06);
+  border-color: var(--wood);
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--wood-dark);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+  transform-origin: center;
+}
+
+.drawer-open .hamburger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.drawer-open .hamburger span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.drawer-open .hamburger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =============================================================
+   MOBILE OVERLAY
+   ============================================================= */
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 18, 16, 0.55);
+  z-index: 40;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.drawer-open .mobile-overlay {
+  opacity: 1;
+}
+
+/* =============================================================
+   MOBILE DRAWER
+   ============================================================= */
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: min(320px, 85vw);
+  height: 100dvh;
+  background: var(--light);
+  z-index: 60;
+  padding: 100px 32px 40px;
+  flex-direction: column;
+  gap: 28px;
+  transform: translateX(-100%);
+  transition: transform 0.35s var(--ease);
+  box-shadow: var(--shadow-lift);
+  border-right: 1px solid var(--paper-line);
+}
+
+.drawer-open .mobile-drawer {
+  transform: translateX(0);
+}
+
+.drawer-close {
+  position: absolute;
+  top: 28px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: none;
+  border: 1px solid rgba(138, 90, 54, 0.2);
+  border-radius: 8px;
+  color: var(--gray);
+  cursor: pointer;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.drawer-close:hover {
+  background: rgba(138, 90, 54, 0.06);
+  color: var(--wood-dark);
+}
+
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.drawer-link {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--wood-dark);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--paper-line);
+  transition: color 0.2s var(--ease), padding-left 0.2s var(--ease);
+}
+
+.drawer-link:first-child {
+  border-top: 1px solid var(--paper-line);
+}
+
+.drawer-link:hover,
+.drawer-link.is-current {
+  color: var(--wood);
+  padding-left: 6px;
+}
+
+.drawer-actions {
+  margin-top: auto;
+}
+
+.drawer-actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* =============================================================
+   MOBILE SECTION PAGING  (≤860px only)
+   ============================================================= */
+@media (max-width: 860px) {
+  /* show hamburger, hide desktop nav CTA */
+  .hamburger { display: flex; }
+  .nav-cta { display: none; }
+
+  /* show overlay and drawer on mobile */
+  .mobile-overlay { display: block; }
+  .mobile-drawer { display: flex; }
+
+  /* hide ALL sections and the trust band by default */
+  .hero,
+  .trust,
+  section,
+  footer {
+    display: none;
+  }
+
+  /* show active section */
+  .hero.is-active { display: block; }
+  section.is-active { display: block; }
+
+  /* trust band shows alongside hero */
+  .hero.is-active + .trust { display: block; }
+
+  /* footer shows alongside kontakt */
+  body.section-kontakt footer { display: block; }
+}
+
+/* =============================================================
    REDUCED MOTION
    ============================================================= */
 @media (prefers-reduced-motion: reduce) {

@@ -58,7 +58,7 @@
 <!-- ============================ NAV ============================ -->
 <header id="site-header">
   <div class="container nav">
-    <a href="#top" class="brand" aria-label="Mittelstet Bau — Startseite">
+    <a href="#hero" class="brand" aria-label="Mittelstet Bau — Startseite">
       <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
         <path d="M3 18 L16 6 L29 18" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
         <path d="M9 16 L9 26 M23 16 L23 26 M9 26 L23 26" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity="0.8"/>
@@ -75,32 +75,41 @@
         <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </nav>
-    <button class="nav-toggle" id="nav-toggle"
-            aria-label="Navigation öffnen"
-            aria-expanded="false"
-            aria-controls="mobile-menu">
+    <button class="hamburger" id="hamburger-btn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-drawer">
       <span></span>
       <span></span>
       <span></span>
     </button>
   </div>
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-    <div class="container">
-      <a href="#leistungen">Leistungen</a>
-      <a href="#projekte">Projekte</a>
-      <a href="#ueber-uns">Über uns</a>
-      <a href="#kontakt" class="btn">
-        Anfrage starten
-        <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-  </div>
 </header>
+
+<!-- Mobile navigation overlay -->
+<div class="mobile-overlay" id="mobile-overlay" aria-hidden="true"></div>
+
+<!-- Mobile navigation drawer -->
+<nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+  <button class="drawer-close" id="drawer-close" aria-label="Menü schließen">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <div class="drawer-links">
+    <a href="#hero" class="drawer-link">Startseite</a>
+    <a href="#leistungen" class="drawer-link">Leistungen</a>
+    <a href="#projekte" class="drawer-link">Projekte</a>
+    <a href="#ueber-uns" class="drawer-link">Über&nbsp;uns</a>
+    <a href="#kontakt" class="drawer-link">Kontakt</a>
+  </div>
+  <div class="drawer-actions">
+    <button class="btn btn--gold popupTrigger" type="button">
+      Newsletter
+      <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M3 8l9 5 9-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</nav>
 
 <main id="top">
 
   <!-- ============================ HERO ============================ -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
         <span class="eyebrow hero-anim d1">Zimmerei · Holzbau · Regionales Handwerk</span>
@@ -437,6 +446,10 @@
 </footer>
 
 <script>
+  var MOBILE_BP = 860;
+  var sectionIds = ['hero', 'leistungen', 'projekte', 'ueber-uns', 'kontakt'];
+  function isMobile() { return window.innerWidth <= MOBILE_BP; }
+
   // --- nav shadow on scroll ---
   (function () {
     var header = document.getElementById('site-header');
@@ -448,17 +461,112 @@
     onScroll();
   })();
 
-  // --- anchor links: scroll with header offset ---
+  // --- mobile section pager ---
+  (function () {
+    function stripSectionClass() {
+      document.body.className = document.body.className
+        .split(' ').filter(function (c) { return c.indexOf('section-') !== 0; }).join(' ').trim();
+    }
+
+    function showSection(id) {
+      sectionIds.forEach(function (sid) {
+        var el = document.getElementById(sid);
+        if (!el) return;
+        el.classList.toggle('is-active', sid === id);
+      });
+      stripSectionClass();
+      document.body.classList.add('section-' + id);
+      document.querySelectorAll('.drawer-link').forEach(function (a) {
+        var href = a.getAttribute('href').replace('#', '');
+        a.classList.toggle('is-current', href === id);
+      });
+    }
+
+    function restoreDesktop() {
+      sectionIds.forEach(function (sid) {
+        var el = document.getElementById(sid);
+        if (el) el.classList.remove('is-active');
+      });
+      stripSectionClass();
+    }
+
+    function syncToHash() {
+      if (!isMobile()) return;
+      var hash = window.location.hash.replace('#', '');
+      var target = sectionIds.indexOf(hash) !== -1 ? hash : 'hero';
+      showSection(target);
+    }
+
+    window.addEventListener('hashchange', syncToHash);
+    window.addEventListener('resize', function () {
+      if (isMobile()) { syncToHash(); }
+      else { restoreDesktop(); }
+    }, { passive: true });
+
+    // init on load
+    if (isMobile()) { syncToHash(); }
+  })();
+
+  // --- hamburger + drawer ---
+  (function () {
+    var btn = document.getElementById('hamburger-btn');
+    var drawer = document.getElementById('mobile-drawer');
+    var overlay = document.getElementById('mobile-overlay');
+    var closeBtn = document.getElementById('drawer-close');
+    if (!btn || !drawer || !overlay) return;
+
+    function openDrawer() {
+      document.body.classList.add('drawer-open');
+      btn.setAttribute('aria-expanded', 'true');
+      drawer.setAttribute('aria-hidden', 'false');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeDrawer() {
+      document.body.classList.remove('drawer-open');
+      btn.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+
+    btn.addEventListener('click', openDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    if (closeBtn) { closeBtn.addEventListener('click', closeDrawer); }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && document.body.classList.contains('drawer-open')) {
+        closeDrawer();
+        btn.focus();
+      }
+    });
+
+    // close drawer on section link click
+    drawer.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', closeDrawer);
+    });
+  })();
+
+  // --- anchor links: scroll (desktop) or section switch (mobile) ---
   (function () {
     var header = document.getElementById('site-header');
+
     if (!header) {
-      console.warn('[anchor-scroll] #site-header not found — offset correction disabled');
+      console.warn('[anchor-scroll] #site-header not found');
       return;
     }
+
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
       a.addEventListener('click', function (e) {
         var id = this.getAttribute('href');
         if (!id || id === '#') return;
+        var bare = id.replace('#', '');
+
+        if (isMobile() && sectionIds.indexOf(bare) !== -1) {
+          // mobile: let hashchange event handle section switching
+          // (browser updates the hash; no smooth scroll needed)
+          return;
+        }
+
         var target;
         try { target = document.querySelector(id); } catch (_) { return; }
         if (!target) return;
@@ -469,7 +577,7 @@
     });
   })();
 
-  // --- scroll-reveal (vanilla, no libraries; respects reduced motion) ---
+  // --- scroll-reveal (vanilla; respects reduced motion) ---
   (function () {
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var items = document.querySelectorAll('.reveal');
@@ -488,38 +596,45 @@
     items.forEach(function (el) { io.observe(el); });
   })();
 
-  // --- hamburger menu toggle ---
+  // --- Mailchimp popup trigger ---
+  // GOTCHA: Replace MAILCHIMP_BASE_URL, MAILCHIMP_UUID, MAILCHIMP_LID with
+  // values from your Mailchimp account (Audience → Signup forms → Popup form)
+  // Script is lazy-loaded on first click — not fetched until user interacts.
   (function () {
-    var header = document.getElementById('site-header');
-    var toggle = document.getElementById('nav-toggle');
-    var menu   = document.getElementById('mobile-menu');
-    if (!toggle || !menu) return;
-
-    function openMenu() {
-      header.classList.add('open');
-      toggle.setAttribute('aria-expanded', 'true');
-      toggle.setAttribute('aria-label', 'Navigation schließen');
-      menu.setAttribute('aria-hidden', 'false');
+    function triggerPopup() {
+      if (typeof window.dojoRequire === 'undefined') {
+        console.warn('[mailchimp] embed.js not loaded — configure Mailchimp credentials');
+        return;
+      }
+      window.dojoRequire(['mojo/signup-forms/Loader'], function (L) {
+        L.start({
+          baseUrl: 'MAILCHIMP_BASE_URL',   // e.g. 'mc.us1.list-manage.com'
+          uuid:    'MAILCHIMP_UUID',         // e.g. 'abc123def456'
+          lid:     'MAILCHIMP_LID',          // e.g. '789xyz'
+          uniqueMethods: true
+        });
+      });
     }
 
-    function closeMenu() {
-      header.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Navigation öffnen');
-      menu.setAttribute('aria-hidden', 'true');
+    function openMailchimpPopup() {
+      document.cookie = 'MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie = 'MCPopupSubscribed=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      if (!document.querySelector('script[src*="mailchimp"]')) {
+        var s = document.createElement('script');
+        s.src = 'https://downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js';
+        s.setAttribute('data-dojo-config', 'usePlainJson: true, isDebug: false');
+        s.onload = triggerPopup;
+        document.body.appendChild(s);
+      } else {
+        triggerPopup();
+      }
     }
 
-    toggle.addEventListener('click', function () {
-      if (header.classList.contains('open')) closeMenu();
-      else openMenu();
-    });
-
-    menu.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', closeMenu);
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && header.classList.contains('open')) closeMenu();
+    document.querySelectorAll('.popupTrigger').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        openMailchimpPopup();
+      });
     });
   })();
 </script>
