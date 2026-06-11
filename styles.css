@@ -1075,7 +1075,6 @@ footer .copy {
   .contact-grid { grid-template-columns: 1fr; }
   section { padding: 84px 0 40px; }
   .hero { padding-top: 130px; }
-  footer { padding: 28px 0 24px; }
 }
 
 @media (max-width: 620px) {
@@ -1250,8 +1249,7 @@ footer .copy {
   /* hide ALL sections and the trust band by default */
   .hero,
   .trust,
-  section,
-  footer {
+  section {
     display: none;
   }
 
@@ -1262,8 +1260,25 @@ footer .copy {
   /* trust band shows alongside hero */
   .hero.is-active + .trust { display: block; }
 
-  /* footer shows alongside kontakt */
-  body.section-kontakt footer { display: block; }
+  /* mini footer: always visible on mobile — hide chrome, keep copyright */
+  footer {
+    padding: 14px 0;
+  }
+  footer .logo-home,
+  footer .foot-links,
+  footer .foot-rule,
+  footer .copy-services {
+    display: none;
+  }
+
+  /* full footer: restore all elements on kontakt */
+  body.section-kontakt footer {
+    padding: 64px 0 40px;
+  }
+  body.section-kontakt footer .logo-home,
+  body.section-kontakt footer .foot-rule { display: block; }
+  body.section-kontakt footer .foot-links { display: flex; }
+  body.section-kontakt footer .copy-services { display: inline; }
 }
 
 /* =============================================================
