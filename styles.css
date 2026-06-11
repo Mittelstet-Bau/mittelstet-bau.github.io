@@ -49,7 +49,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 83px; /* .nav height (82px) + header border-bottom (1px) — fallback for keyboard nav */
+  scroll-padding-top: 107px; /* header (83px) + breathing room (24px) */
 }
 
 body {
@@ -205,7 +205,6 @@ header.scrolled {
 .nav-links a:not(.btn):hover::after {
   transform: scaleX(1);
 }
-
 
 /* ---------- buttons ---------- */
 .btn {
@@ -457,6 +456,10 @@ header.scrolled {
 section {
   padding: 110px 0;
   position: relative;
+}
+
+#leistungen, #projekte, #ueber-uns, #kontakt {
+  scroll-margin-top: 107px;
 }
 
 .section-head {
