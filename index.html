@@ -573,18 +573,18 @@
         if (!id || id === '#') return;
         var bare = id.slice(1);
 
-        if (isMobile() && sectionIds.indexOf(id) !== -1) {
-          // mobile: let hashchange event handle section switching
-          // (browser updates the hash; no smooth scroll needed)
+        if (isMobile() && sectionIds.indexOf(bare) !== -1) {
+          e.preventDefault();
+          window.location.hash = bare;
           return;
         }
 
         var target;
-        try { target = document.querySelector(href); } catch (_) { return; }
+        try { target = document.querySelector(id); } catch (_) { console.warn('[anchor-scroll] invalid selector:', id); return; }
         if (!target) return;
         e.preventDefault();
 
-        if (id === 'kontakt') {
+        if (bare === 'kontakt') {
           var mid = target.getBoundingClientRect().top + window.scrollY + target.offsetHeight / 2;
           window.scrollTo({ top: Math.max(0, mid - window.innerHeight / 2), behavior: 'smooth' });
         } else {
