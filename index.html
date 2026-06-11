@@ -476,12 +476,17 @@
 
   // --- mobile section pager ---
   (function () {
+    var activeSection = null;
+
     function stripSectionClass() {
       document.body.className = document.body.className.replace(/\bsection-\S+/g, '').trim();
     }
 
     function showSection(id) {
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      if (id !== activeSection) {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        activeSection = id;
+      }
       sectionIds.forEach(function (sid) {
         var el = document.getElementById(sid);
         if (!el) return;
@@ -490,12 +495,13 @@
       stripSectionClass();
       document.body.classList.add('section-' + id);
       document.querySelectorAll('.drawer-link').forEach(function (a) {
-        var href = a.getAttribute('href').slice(1);
+        var href = (a.getAttribute('href') || '').slice(1);
         a.classList.toggle('is-current', href === id);
       });
     }
 
     function restoreDesktop() {
+      activeSection = null;
       sectionIds.forEach(function (sid) {
         var el = document.getElementById(sid);
         if (el) el.classList.remove('is-active');
