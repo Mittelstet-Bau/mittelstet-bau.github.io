@@ -444,7 +444,7 @@ section {
   position: relative;
 }
 
-#leistungen, #projekte, #ueber-uns, #kontakt {
+#leistungen, #ueber-uns, #kontakt {
   scroll-margin-top: 107px;
 }
 
