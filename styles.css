@@ -1264,21 +1264,11 @@ footer .copy {
   footer {
     padding: 14px 0;
   }
-  footer .logo-home,
   footer .foot-links,
   footer .foot-rule,
   footer .copy-services {
     display: none;
   }
-
-  /* full footer: restore all elements on kontakt */
-  body.section-kontakt footer {
-    padding: 64px 0 40px;
-  }
-  body.section-kontakt footer .logo-home,
-  body.section-kontakt footer .foot-rule { display: block; }
-  body.section-kontakt footer .foot-links { display: flex; }
-  body.section-kontakt footer .copy-services { display: inline; }
 }
 
 /* =============================================================
