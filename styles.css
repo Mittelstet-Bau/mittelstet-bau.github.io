@@ -992,7 +992,7 @@ form .btn { margin-top: 6px; }
    FOOTER
    ============================================================= */
 footer {
-  background: var(--ink-black);
+  background: var(--wood-dark);
   color: rgba(247, 241, 232, 0.6);
   padding: 64px 0 40px;
   text-align: center;
