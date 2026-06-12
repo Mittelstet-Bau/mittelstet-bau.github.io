@@ -582,14 +582,9 @@
         if (!target) return;
         e.preventDefault();
 
-        if (bare === 'kontakt') {
-          var mid = target.getBoundingClientRect().top + window.scrollY + target.offsetHeight / 2;
-          window.scrollTo({ top: Math.max(0, mid - window.innerHeight / 2), behavior: 'smooth' });
-        } else {
-          var padTop = parseFloat(getComputedStyle(target).paddingTop) || 0;
-          var top = target.getBoundingClientRect().top + window.scrollY + padTop - header.offsetHeight - GAP;
-          window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-        }
+        var padTop = parseFloat(getComputedStyle(target).paddingTop) || 0;
+        var top = target.getBoundingClientRect().top + window.scrollY + padTop - header.offsetHeight - GAP;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
       });
     });
   })();
