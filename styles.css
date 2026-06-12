@@ -288,7 +288,8 @@ header.scrolled {
   margin-bottom: 26px;
 }
 
-.hero .eyebrow::before {
+.hero .eyebrow::before,
+.hero .eyebrow::after {
   content: "";
   width: 30px;
   height: 1px;
@@ -296,11 +297,12 @@ header.scrolled {
 }
 
 .hero h1 {
-  font-size: clamp(2.9rem, 6vw, 5.2rem);
-  line-height: 0.98;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  line-height: 1.05;
   letter-spacing: -0.025em;
   color: var(--wood-dark);
   margin-bottom: 26px;
+  max-width: 820px;
 }
 
 .hero h1 em {
@@ -310,7 +312,7 @@ header.scrolled {
 }
 
 .hero-lead {
-  max-width: 640px;
+  max-width: 820px;
   font-size: 1.14rem;
   color: var(--gray);
   margin-bottom: 36px;
@@ -331,7 +333,9 @@ header.scrolled {
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 480px;
 }
 
 .hero-meta .stat strong {
