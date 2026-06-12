@@ -60,6 +60,13 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+main {
+  flex: 1;
 }
 
 /* Warm paper grain over the whole page for atmosphere */
@@ -271,6 +278,10 @@ header.scrolled {
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 70% 35%, #000 30%, transparent 75%);
 }
 
+.hero .container {
+  width: min(1400px, 92%);
+}
+
 .hero-grid {
   position: relative;
   z-index: 2;
@@ -331,11 +342,9 @@ header.scrolled {
 .hero-meta {
   margin-top: 46px;
   display: flex;
-  gap: 40px;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  max-width: 480px;
 }
 
 .hero-meta .stat strong {
