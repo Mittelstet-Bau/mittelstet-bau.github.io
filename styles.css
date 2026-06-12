@@ -312,7 +312,7 @@ header.scrolled {
   line-height: 1.05;
   letter-spacing: -0.025em;
   color: var(--wood-dark);
-  margin-bottom: 26px;
+  margin: 0 auto 26px;
   max-width: 820px;
 }
 
