@@ -274,10 +274,10 @@ header.scrolled {
 .hero-grid {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 60px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .hero .eyebrow {
@@ -310,10 +310,12 @@ header.scrolled {
 }
 
 .hero-lead {
-  max-width: 520px;
+  max-width: 640px;
   font-size: 1.14rem;
   color: var(--gray);
   margin-bottom: 36px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-actions {
@@ -321,6 +323,7 @@ header.scrolled {
   flex-wrap: wrap;
   gap: 16px;
   align-items: center;
+  justify-content: center;
 }
 
 .hero-meta {
@@ -328,6 +331,7 @@ header.scrolled {
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .hero-meta .stat strong {
@@ -1058,7 +1062,7 @@ footer .copy {
    RESPONSIVE
    ============================================================= */
 @media (max-width: 1080px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero-grid { gap: 48px; }
   .hero-plate { max-width: 560px; }
   .service-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery-grid { grid-template-columns: repeat(4, 1fr); grid-template-rows: none; }
