@@ -322,7 +322,6 @@ header.scrolled {
 }
 
 .hero-lead {
-  max-width: 520px;
   font-size: 1.14rem;
   color: var(--gray);
   margin-bottom: 36px;
