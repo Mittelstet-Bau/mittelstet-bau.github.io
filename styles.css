@@ -1256,7 +1256,8 @@ footer .copy {
   html, body { overscroll-behavior: none; }
 
   /* show overlay and drawer on mobile */
-  .mobile-overlay { display: block; }
+  .mobile-overlay { display: block; pointer-events: none; }
+  .drawer-open .mobile-overlay { pointer-events: auto; }
   .mobile-drawer { display: flex; }
 
   /* hide ALL sections and the trust band by default */
