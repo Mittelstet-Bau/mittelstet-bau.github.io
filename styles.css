@@ -340,6 +340,8 @@ header.scrolled {
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .hero-meta .stat strong {
