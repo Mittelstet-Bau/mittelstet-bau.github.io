@@ -193,7 +193,7 @@ header.scrolled {
 }
 
 .nav-links a:not(.btn):hover {
-  color: var(--wood-dark);
+  color: var(--gold);
 }
 
 .nav-links a:not(.btn):hover::after {
@@ -318,7 +318,7 @@ header.scrolled {
 .hero h1 em {
   font-style: italic;
   font-variation-settings: "SOFT" 60;
-  color: var(--wood);
+  color: var(--gold);
 }
 
 .hero-lead {
@@ -347,7 +347,7 @@ header.scrolled {
   font-family: var(--font-display);
   font-size: 2rem;
   line-height: 1;
-  color: var(--wood);
+  color: var(--gold);
 }
 
 .hero-meta .stat span {
@@ -489,7 +489,7 @@ section {
 
 .section-head h2 em {
   font-style: italic;
-  color: var(--wood);
+  color: var(--gold);
 }
 
 .lead {
@@ -1237,7 +1237,7 @@ footer .copy {
 
 .drawer-link:hover,
 .drawer-link.is-current {
-  color: var(--wood);
+  color: var(--gold);
   padding-left: 6px;
 }
 
