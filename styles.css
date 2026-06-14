@@ -55,7 +55,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--wood-dark);
+  color: var(--ink);
   background: var(--light);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -95,7 +95,7 @@ a {
 
 ::selection {
   background: var(--gold-bright);
-  color: var(--wood-dark);
+  color: var(--ink);
 }
 
 .container {
@@ -246,7 +246,7 @@ header.scrolled {
 
 .btn--ghost {
   background: transparent;
-  color: var(--wood-dark);
+  color: var(--ink);
   border-color: color-mix(in srgb, var(--gold) 35%, transparent);
   box-shadow: none;
 }
@@ -296,7 +296,7 @@ header.scrolled {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--wood);
+  color: var(--gold);
   margin-bottom: 26px;
 }
 
@@ -311,7 +311,7 @@ header.scrolled {
   font-size: clamp(2.9rem, 6vw, 5.2rem);
   line-height: 0.98;
   letter-spacing: -0.025em;
-  color: var(--wood-dark);
+  color: var(--ink);
   margin-bottom: 26px;
 }
 
@@ -397,7 +397,7 @@ header.scrolled {
   justify-content: space-between;
   align-items: center;
   margin-top: 14px;
-  color: var(--wood);
+  color: var(--gold);
   opacity: 0.75;
 }
 
@@ -440,7 +440,7 @@ header.scrolled {
   font-family: var(--font-display);
   font-weight: 500;
   font-size: 1.55rem;
-  color: var(--wood-dark);
+  color: var(--ink);
   margin: 6px 0 10px;
 }
 
@@ -485,7 +485,7 @@ section {
   line-height: 1.06;
   letter-spacing: -0.02em;
   margin: 16px 0 18px;
-  color: var(--wood-dark);
+  color: var(--ink);
 }
 
 .section-head h2 em {
@@ -557,7 +557,7 @@ section {
   font-size: 0.66rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--wood);
+  color: var(--gold);
   background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(4px);
   padding: 5px 10px;
@@ -579,7 +579,7 @@ section {
 .service-figure.is-placeholder .ph-icon {
   width: 66px;
   height: 66px;
-  color: var(--wood);
+  color: var(--gold);
   opacity: 0.55;
 }
 
@@ -594,7 +594,7 @@ section {
   font-size: 1.4rem;
   letter-spacing: -0.01em;
   margin-bottom: 10px;
-  color: var(--wood-dark);
+  color: var(--ink);
 }
 
 .service-content p {
@@ -700,12 +700,12 @@ section {
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--wood);
+  color: var(--gold);
 }
 
 .plate-card .caption b {
   font-weight: 600;
-  color: var(--wood-dark);
+  color: var(--ink);
 }
 
 /* =============================================================
@@ -762,7 +762,7 @@ section {
   font-family: var(--font-display);
   font-size: 1.4rem;
   line-height: 1.4;
-  color: var(--wood-dark);
+  color: var(--ink);
 }
 
 .about-list {
@@ -776,7 +776,7 @@ section {
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  color: var(--wood-dark);
+  color: var(--ink);
   font-weight: 500;
 }
 
@@ -830,7 +830,7 @@ section {
   gap: 16px;
   padding: 16px 0;
   border-top: 1px solid var(--paper-line);
-  color: var(--wood-dark);
+  color: var(--ink);
   transition: color 0.2s var(--ease);
 }
 
@@ -863,7 +863,7 @@ section {
 .contact-line .value {
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--wood-dark);
+  color: var(--ink);
 }
 
 .contact-line:hover .value { color: var(--gold); }
@@ -901,7 +901,7 @@ section {
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 600;
-  color: var(--wood-dark);
+  color: var(--ink);
   margin-bottom: 8px;
 }
 
@@ -937,7 +937,7 @@ input, textarea {
   font: inherit;
   font-size: 0.98rem;
   background: var(--white);
-  color: var(--wood-dark);
+  color: var(--ink);
   transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
 }
 
@@ -970,13 +970,13 @@ form .btn { margin-top: 6px; }
 .fs-success {
   border: 1px solid var(--gold);
   background: rgba(231, 205, 143, 0.08);
-  color: var(--wood-dark);
+  color: var(--ink);
 }
 
 .fs-error {
   border: 1px solid rgba(220, 80, 80, 0.6);
   background: rgba(220, 80, 80, 0.08);
-  color: var(--wood-dark);
+  color: var(--ink);
 }
 
 .fs-field-error {
@@ -1140,7 +1140,7 @@ footer .copy {
   display: block;
   width: 100%;
   height: 2px;
-  background: var(--wood-dark);
+  background: var(--ink);
   border-radius: 2px;
   transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
   transform-origin: center;
@@ -1219,7 +1219,7 @@ footer .copy {
 .drawer-close:hover {
   background: color-mix(in srgb, var(--gold) 6%, transparent);
   border-color: var(--gold-soft);
-  color: var(--wood-dark);
+  color: var(--ink);
 }
 
 .drawer-links {
@@ -1232,7 +1232,7 @@ footer .copy {
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 500;
-  color: var(--wood-dark);
+  color: var(--ink);
   padding: 14px 0;
   border-bottom: 1px solid var(--paper-line);
   transition: color 0.2s var(--ease), padding-left 0.2s var(--ease);
