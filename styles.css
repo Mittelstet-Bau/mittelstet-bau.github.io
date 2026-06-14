@@ -988,6 +988,36 @@ form .btn { margin-top: 6px; }
   letter-spacing: 0.06em;
 }
 
+/* Success banner layout */
+.fs-success-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Animate banner in when Formspree reveals it (display:none → block restarts animations) */
+.fs-success {
+  animation: fs-banner-in 0.45s var(--ease) both;
+}
+
+.fs-checkmark circle {
+  stroke: var(--gold);
+  stroke-width: 2;
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  animation: stroke-draw 0.6s var(--ease) 0.05s both;
+}
+
+.fs-checkmark path {
+  stroke: var(--gold);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke-draw 0.35s ease 0.65s both;
+}
+
 /* =============================================================
    FOOTER
    ============================================================= */
@@ -1069,6 +1099,13 @@ footer .copy {
 }
 @keyframes riseplate {
   to { opacity: 1; transform: none; }
+}
+@keyframes fs-banner-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes stroke-draw {
+  to { stroke-dashoffset: 0; }
 }
 
 /* =============================================================
