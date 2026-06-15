@@ -338,8 +338,27 @@
     src="https://unpkg.com/@formspree/ajax@1.1.5/dist/global.js"
     integrity="sha384-9fQrvHz7unHjhv7e+pJqhvNxPV4tYHHsSn3PxBIEyPTGY8Q/PAKM1sfhL+zTYmhc"
     crossorigin="anonymous"></script>
+  <!-- canvas-confetti: fires celebration burst on successful form submit -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"
+    integrity="sha384-T92s0g83TWtUaWRbPHOMW23oeLUB92uhX2/gEiV//4HhGKkTq6Gd8fGi9stybxPW"
+    crossorigin="anonymous"></script>
   <script>
-    formspree('initForm', { formElement: '#contact-form', formId: 'mqeodvep' });
+    function fireConfetti() {
+      if (typeof confetti !== 'function') return;
+      confetti({
+        particleCount: 120,
+        spread: 70,
+        origin: { y: 0.55 },
+        colors: ['#bd9b3c', '#cba65d', '#e6cd8f', '#141210', '#3f4045']
+      });
+    }
+
+    formspree('initForm', {
+      formElement: '#contact-form',
+      formId: 'mqeodvep',
+      onSuccess: fireConfetti
+    });
   </script>
 
 </main>
