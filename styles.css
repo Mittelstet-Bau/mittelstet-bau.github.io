@@ -1341,3 +1341,66 @@ footer .copy {
   .reveal { opacity: 1; transform: none; }
   .hero-anim, .hero-plate.hero-anim { opacity: 1; transform: none; }
 }
+
+/* =============================================================
+   IMPRESSUM (standalone legal page)
+   ============================================================= */
+.impressum-content {
+  padding: 130px 0 90px; /* clear the fixed header */
+}
+
+.impressum-content h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.impressum-content .impressum-intro {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--gold);
+  margin-bottom: 48px;
+}
+
+.impressum-section {
+  margin-bottom: 40px;
+}
+
+.impressum-section h2 {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.impressum-section p,
+.impressum-section a {
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+.impressum-section a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.25s var(--ease);
+}
+
+.impressum-section a:hover {
+  color: var(--gold-bright);
+}
+
+.impressum-rule {
+  width: 100%;
+  max-width: 520px;
+  height: 1px;
+  margin: 40px 0;
+  background: linear-gradient(90deg, var(--sand), transparent);
+}
