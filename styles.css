@@ -929,6 +929,21 @@ form {
   margin-bottom: 8px;
 }
 
+.field:has(input[required]) label::after,
+.field:has(textarea[required]) label::after {
+  content: " *" / "";
+  color: var(--gold);
+}
+
+.form-legend {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  color: var(--gray);
+  margin-top: 8px;
+  text-align: right;
+}
+
 input, textarea {
   width: 100%;
   border: 1px solid var(--paper-line);
