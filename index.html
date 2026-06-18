@@ -282,17 +282,16 @@
             library. Submissions go to info@mittelstet-bau.de. The form ID
             (mqeodvep) is a public endpoint identifier, not a secret.
           -->
-          <div data-fs-success class="fs-banner fs-success" style="display:none" role="alert">
-            <span class="fs-success-inner">
-              <svg class="fs-checkmark" viewBox="0 0 52 52" width="44" height="44" aria-hidden="true">
-                <circle cx="26" cy="26" r="25" fill="none"/>
-                <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-              </svg>
-              <span><strong>Vielen Dank!</strong> Ihre Anfrage wurde gesendet. Wir melden uns bald.</span>
-            </span>
-          </div>
           <div data-fs-error class="fs-banner fs-error" style="display:none" role="alert">
             <strong>Fehler.</strong> Bitte versuchen Sie es erneut oder schreiben Sie uns direkt.
+          </div>
+          <div id="form-success-card" style="display:none" role="status" aria-live="polite">
+            <svg class="form-success-icon" viewBox="0 0 52 52" width="64" height="64" aria-hidden="true">
+              <circle cx="26" cy="26" r="25" fill="none"/>
+              <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+            <p class="form-success-title">Vielen Dank für Ihre Anfrage.</p>
+            <p class="form-success-body">Ihre Nachricht wurde erfolgreich übermittelt. Wir melden uns in der Regel innerhalb eines Werktages bei Ihnen.</p>
           </div>
           <form id="contact-form" action="https://formspree.io/f/mqeodvep" method="POST">
             <div class="field">
@@ -347,7 +346,14 @@
     formspree('initForm', {
       formElement: '#contact-form',
       formId: 'mqeodvep',
-      onSuccess: fireConfetti
+      onSuccess: function() {
+        fireConfetti();
+        var form = document.getElementById('contact-form');
+        var box = form.closest('.contact-box');
+        box.style.minHeight = box.offsetHeight + 'px';
+        form.style.display = 'none';
+        document.getElementById('form-success-card').style.display = 'flex';
+      }
     });
   </script>
 

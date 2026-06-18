@@ -982,12 +982,6 @@ form .btn { margin-top: 6px; }
   line-height: 1.5;
 }
 
-.fs-success {
-  border: 1px solid var(--gold);
-  background: rgba(231, 205, 143, 0.08);
-  color: var(--ink);
-}
-
 .fs-error {
   border: 1px solid rgba(220, 80, 80, 0.6);
   background: rgba(220, 80, 80, 0.08);
@@ -1003,34 +997,58 @@ form .btn { margin-top: 6px; }
   letter-spacing: 0.06em;
 }
 
-/* Success banner layout */
-.fs-success-inner {
-  display: flex;
+/* Contact form success card */
+#form-success-card {
+  flex-direction: column;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  gap: 20px;
+  animation: form-success-in 0.5s var(--ease) both;
+  min-height: 300px;
 }
 
-/* Animate banner in when Formspree reveals it (display:none → block restarts animations) */
-.fs-success {
-  animation: fs-banner-in 0.45s var(--ease) both;
+.form-success-icon {
+  flex: none;
 }
 
-.fs-checkmark circle {
+.form-success-icon circle {
   stroke: var(--gold);
   stroke-width: 2;
   stroke-dasharray: 157;
   stroke-dashoffset: 157;
-  animation: stroke-draw 0.6s var(--ease) 0.05s both;
+  animation: stroke-draw 0.6s var(--ease) 0.1s both;
 }
 
-.fs-checkmark path {
+.form-success-icon path {
   stroke: var(--gold);
   stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 48;
   stroke-dashoffset: 48;
-  animation: stroke-draw 0.35s ease 0.65s both;
+  animation: stroke-draw 0.35s ease 0.7s both;
+}
+
+.form-success-title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.form-success-body {
+  color: var(--gray);
+  font-size: 1.02rem;
+  max-width: 34ch;
+  line-height: 1.65;
+}
+
+@keyframes form-success-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
 }
 
 /* =============================================================
@@ -1114,10 +1132,6 @@ footer .copy {
 }
 @keyframes riseplate {
   to { opacity: 1; transform: none; }
-}
-@keyframes fs-banner-in {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: none; }
 }
 @keyframes stroke-draw {
   to { stroke-dashoffset: 0; }
