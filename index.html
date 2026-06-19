@@ -531,48 +531,6 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     items.forEach(function (el) { io.observe(el); });
   })();
-
-  // --- Mailchimp popup trigger ---
-  // GOTCHA: Replace MAILCHIMP_BASE_URL, MAILCHIMP_UUID, MAILCHIMP_LID with
-  // values from your Mailchimp account (Audience → Signup forms → Popup form)
-  // Script is lazy-loaded on first click — not fetched until user interacts.
-  (function () {
-    function triggerPopup() {
-      if (typeof window.dojoRequire === 'undefined') {
-        console.warn('[mailchimp] embed.js not loaded — configure Mailchimp credentials');
-        return;
-      }
-      window.dojoRequire(['mojo/signup-forms/Loader'], function (L) {
-        L.start({
-          baseUrl: 'MAILCHIMP_BASE_URL',   // e.g. 'mc.us1.list-manage.com'
-          uuid:    'MAILCHIMP_UUID',         // e.g. 'abc123def456'
-          lid:     'MAILCHIMP_LID',          // e.g. '789xyz'
-          uniqueMethods: true
-        });
-      });
-    }
-
-    function openMailchimpPopup() {
-      document.cookie = 'MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      document.cookie = 'MCPopupSubscribed=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      if (!document.querySelector('script[src*="mailchimp"]')) {
-        var s = document.createElement('script');
-        s.src = 'https://downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js';
-        s.setAttribute('data-dojo-config', 'usePlainJson: true, isDebug: false');
-        s.onload = triggerPopup;
-        document.body.appendChild(s);
-      } else {
-        triggerPopup();
-      }
-    }
-
-    document.querySelectorAll('.popupTrigger').forEach(function (el) {
-      el.addEventListener('click', function (e) {
-        e.preventDefault();
-        openMailchimpPopup();
-      });
-    });
-  })();
 </script>
 
 </body>

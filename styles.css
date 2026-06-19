@@ -405,49 +405,6 @@ header.scrolled {
   letter-spacing: 0.1em;
 }
 
-/* =============================================================
-   TRUST BAND
-   ============================================================= */
-.trust {
-  position: relative;
-  z-index: 3;
-  margin-top: -40px;
-}
-
-.trust-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.trust-card {
-  background: var(--white);
-  padding: 34px 32px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-}
-
-.trust-card .num {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  letter-spacing: 0.2em;
-  color: var(--gold);
-}
-
-.trust-card strong {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 1.55rem;
-  color: var(--ink);
-  margin: 6px 0 10px;
-}
-
-.trust-card p {
-  color: var(--gray);
-  font-size: 0.98rem;
-}
 
 /* =============================================================
    SECTION SCAFFOLD
@@ -602,111 +559,7 @@ section {
   font-size: 0.97rem;
 }
 
-/* featured service card — full-width, horizontal layout */
-.service-card--featured {
-  grid-column: 1 / -1;
-  flex-direction: row;
-}
 
-.service-card--featured .service-figure {
-  flex: 0 0 50%;
-  height: auto;
-  min-height: 300px;
-  border-bottom: none;
-  border-right: 1px solid var(--paper-line);
-}
-
-.service-card--featured .service-content {
-  padding: 2.5rem 3rem;
-  justify-content: center;
-  gap: 0;
-}
-
-.service-card--featured .service-content h3 {
-  font-size: 1.9rem;
-  margin-bottom: 14px;
-}
-
-.service-card--featured .service-content p {
-  font-size: 1.05rem;
-  max-width: 38ch;
-}
-
-/* =============================================================
-   GALLERY  (architectural plates)
-   ============================================================= */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 240px 240px 360px;
-  grid-auto-rows: 240px;
-  gap: 20px;
-}
-
-.plate-card {
-  position: relative;
-  background: var(--paper);
-  border-radius: var(--radius);
-  border: 1px solid var(--paper-line);
-  box-shadow: var(--shadow-soft);
-  overflow: hidden;
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease),
-    border-color 0.3s var(--ease);
-}
-
-.plate-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lift);
-  border-color: color-mix(in srgb, var(--gold) 22%, transparent);
-}
-
-/* editorial spans */
-.plate-card.span-6 { grid-column: span 6; }
-.plate-card.span-3 { grid-column: span 3; }
-.plate-card.span-2 { grid-column: span 2; }
-.plate-card.tall   { grid-row: span 2; }
-
-.plate-card .img-wrap {
-  flex: 1;
-  overflow: hidden;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.plate-card .img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  mix-blend-mode: multiply;
-  transition: transform 0.6s var(--ease);
-}
-
-.plate-card:hover .img-wrap img {
-  transform: scale(1.05);
-}
-
-.plate-card .caption {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-top: 14px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-
-.plate-card .caption b {
-  font-weight: 600;
-  color: var(--ink);
-}
 
 /* =============================================================
    ABOUT
@@ -1144,16 +997,11 @@ footer .copy {
   .hero-grid { grid-template-columns: 1fr; gap: 48px; }
   .hero-plate { max-width: 560px; margin-inline: auto; }
   .service-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-grid { grid-template-columns: repeat(4, 1fr); grid-template-rows: none; }
-  .plate-card.span-6 { grid-column: span 4; }
-  .plate-card.span-3 { grid-column: span 2; }
-  .plate-card.span-2 { grid-column: span 2; }
 }
 
 @media (max-width: 860px) {
   .nav-links a:not(.btn):not(.nav-cta) { display: none; }
-  .trust-grid { grid-template-columns: 1fr; }
-  .about-layout { grid-template-columns: 1fr; gap: 40px; }
+.about-layout { grid-template-columns: 1fr; gap: 40px; }
   .about-figure { order: -1; }
   .contact-grid { grid-template-columns: 1fr; }
   section { padding: 84px 0 40px; }
@@ -1168,12 +1016,7 @@ footer .copy {
     border-right: none;
     border-bottom: 1px solid var(--paper-line);
   }
-  .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 260px; }
-  .plate-card.span-6,
-  .plate-card.span-3,
-  .plate-card.span-2 { grid-column: span 1; }
-  .plate-card.tall { grid-row: span 1; }
-  .trust-card, .contact-box { padding: 26px; }
+.contact-box { padding: 26px; }
   .hero-meta { gap: 26px; }
   .nav .btn { padding: 12px 18px; }
 }
@@ -1332,9 +1175,8 @@ footer .copy {
   .drawer-open .mobile-overlay { pointer-events: auto; }
   .mobile-drawer { display: flex; }
 
-  /* hide ALL sections and the trust band by default */
+  /* hide ALL sections by default */
   .hero,
-  .trust,
   section {
     display: none;
   }
@@ -1342,9 +1184,6 @@ footer .copy {
   /* show active section */
   .hero.is-active { display: block; }
   section.is-active { display: block; }
-
-  /* trust band shows alongside hero */
-  .hero.is-active + .trust { display: block; }
 
   /* mini footer: always visible on mobile — hide chrome, keep copyright */
   footer {
