@@ -1001,7 +1001,7 @@ footer .copy {
 
 @media (max-width: 860px) {
   .nav-links a:not(.btn):not(.nav-cta) { display: none; }
-.about-layout { grid-template-columns: 1fr; gap: 40px; }
+  .about-layout { grid-template-columns: 1fr; gap: 40px; }
   .about-figure { order: -1; }
   .contact-grid { grid-template-columns: 1fr; }
   section { padding: 84px 0 40px; }
@@ -1016,7 +1016,7 @@ footer .copy {
     border-right: none;
     border-bottom: 1px solid var(--paper-line);
   }
-.contact-box { padding: 26px; }
+  .contact-box { padding: 26px; }
   .hero-meta { gap: 26px; }
   .nav .btn { padding: 12px 18px; }
 }
