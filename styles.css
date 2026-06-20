@@ -9,8 +9,6 @@
 
 :root {
   /* --- prototype palette (kept, per PRD) --- */
-  --wood: #8a5a36;
-  --wood-dark: #4a3325;
   --beige: #f3eadf;
   --sand: #d8c2aa;
   --gray: #5f625f;
@@ -25,7 +23,6 @@
   --gold-bright: #e6cd8f;    /* gold highlight */
   --ink: #2a2520;            /* warm near-black text on dark */
   --ink-black: #141210;      /* near-black home for the logo */
-  --ink-black-2: #1d1a16;
   --charcoal: #3f4045;       /* logo background / footer */
 
   --shadow: 0 18px 45px rgba(45, 34, 25, 0.12);
@@ -33,7 +30,6 @@
   --shadow-lift: 0 28px 60px rgba(45, 34, 25, 0.18);
   --radius: 22px;
   --radius-lg: 30px;
-  --radius-sm: 14px;
 
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 
@@ -244,18 +240,6 @@ header.scrolled {
   background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 100%);
 }
 
-.btn--ghost {
-  background: transparent;
-  color: var(--ink);
-  border-color: color-mix(in srgb, var(--gold) 35%, transparent);
-  box-shadow: none;
-}
-
-.btn--ghost:hover {
-  background: color-mix(in srgb, var(--gold) 6%, transparent);
-  border-color: var(--gold-soft);
-}
-
 /* =============================================================
    HERO
    ============================================================= */
@@ -325,13 +309,6 @@ header.scrolled {
   font-size: 1.14rem;
   color: var(--gray);
   margin-bottom: 36px;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
 }
 
 .hero-meta {
@@ -504,40 +481,6 @@ section {
 
 .service-card:hover .service-figure img {
   transform: scale(1.04);
-}
-
-.service-figure .tag {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold);
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(4px);
-  padding: 5px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--paper-line);
-}
-
-/* placeholder "plate awaiting drawing" for services without art */
-.service-figure.is-placeholder {
-  display: grid;
-  place-items: center;
-  background-color: var(--paper);
-  background-image:
-    linear-gradient(rgba(138, 90, 54, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(138, 90, 54, 0.08) 1px, transparent 1px);
-  background-size: 22px 22px;
-}
-
-.service-figure.is-placeholder .ph-icon {
-  width: 66px;
-  height: 66px;
-  color: var(--gold);
-  opacity: 0.55;
 }
 
 .service-content {
@@ -788,15 +731,6 @@ form {
   color: var(--gold);
 }
 
-.form-legend {
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.16em;
-  color: var(--gray);
-  margin-top: 8px;
-  text-align: right;
-}
-
 input, textarea {
   width: 100%;
   border: 1px solid var(--paper-line);
@@ -960,8 +894,6 @@ footer .copy {
 .reveal[data-delay="1"] { transition-delay: 0.08s; }
 .reveal[data-delay="2"] { transition-delay: 0.16s; }
 .reveal[data-delay="3"] { transition-delay: 0.24s; }
-.reveal[data-delay="4"] { transition-delay: 0.32s; }
-.reveal[data-delay="5"] { transition-delay: 0.40s; }
 
 /* staggered hero entrance on load */
 .hero-anim {
@@ -972,7 +904,6 @@ footer .copy {
 .hero-anim.d1 { animation-delay: 0.05s; }
 .hero-anim.d2 { animation-delay: 0.18s; }
 .hero-anim.d3 { animation-delay: 0.31s; }
-.hero-anim.d4 { animation-delay: 0.44s; }
 .hero-anim.d5 { animation-delay: 0.57s; }
 
 .hero-plate.hero-anim {
@@ -1010,12 +941,6 @@ footer .copy {
 
 @media (max-width: 620px) {
   .service-grid { grid-template-columns: 1fr; }
-  .service-card--featured { flex-direction: column; }
-  .service-card--featured .service-figure {
-    flex: none;
-    border-right: none;
-    border-bottom: 1px solid var(--paper-line);
-  }
   .contact-box { padding: 26px; }
   .hero-meta { gap: 26px; }
   .nav .btn { padding: 12px 18px; }
@@ -1164,7 +1089,6 @@ footer .copy {
   /* show hamburger, hide desktop nav CTA */
   .hamburger { display: flex; }
   .nav-cta { display: none; }
-  .hero-actions { display: none; }
 
   /* prevent bounce/rubber-band scroll on iOS and Android; also suppresses
      pull-to-refresh on Android Chrome — intentional for a static marketing site */
