@@ -323,6 +323,15 @@ header.scrolled {
   background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 100%);
 }
 
+/* mobile-only sticky CTA — hidden everywhere except inside the ≤860px block */
+.mobile-fab {
+  display: none;
+}
+body.section-kontakt .mobile-fab,
+body.drawer-open    .mobile-fab {
+  display: none !important;
+}
+
 /* =============================================================
    HERO
    ============================================================= */
@@ -1200,6 +1209,51 @@ footer .copy {
   footer .foot-rule,
   footer .copy-services {
     display: none;
+  }
+
+  /* floating CTA pill */
+  .mobile-fab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    position: fixed;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 55;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    border: 1px solid transparent;
+    box-shadow: var(--shadow);
+    white-space: nowrap;
+    transition: transform 0.25s var(--ease), background 0.25s var(--ease),
+      box-shadow 0.25s var(--ease);
+  }
+  .mobile-fab:hover {
+    transform: translateX(-50%) translateY(-2px);
+    background: var(--gold-soft);
+    box-shadow: var(--shadow-lift);
+  }
+  .mobile-fab:focus-visible {
+    outline: 2px solid var(--gold-bright);
+    outline-offset: 3px;
+  }
+  .mobile-fab:active {
+    transform: translateX(-50%) scale(0.97);
+    opacity: 0.9;
+  }
+  .mobile-fab .arrow {
+    transition: transform 0.25s var(--ease);
+  }
+  .mobile-fab:hover .arrow {
+    transform: translateX(4px);
   }
 }
 
