@@ -621,7 +621,6 @@ section {
 }
 
 .about-figure img {
-  mix-blend-mode: multiply;
   aspect-ratio: 5 / 4;
 }
 
