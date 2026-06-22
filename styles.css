@@ -851,6 +851,64 @@ textarea {
 
 form .btn { margin-top: 6px; }
 
+.field--check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.field--check input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 1px solid var(--paper-line);
+  border-radius: 5px;
+  background: var(--white);
+  cursor: pointer;
+  margin-top: 2px;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+
+.field--check input[type="checkbox"]:checked {
+  background-color: var(--gold);
+  border-color: var(--gold);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l3 3 5-6' stroke='%23141210' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px 8px;
+}
+
+.field--check input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* overrides .field label mono defaults */
+.field--check label {
+  display: inline;
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-body);
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.field--check label a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.field--check label a:hover {
+  color: var(--gold-soft);
+}
+
 /* Formspree feedback banners */
 .fs-banner {
   border-radius: 10px;
