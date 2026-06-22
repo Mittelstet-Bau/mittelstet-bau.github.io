@@ -24,10 +24,7 @@
   <meta name="twitter:description" content="Regionales Holzbau-Handwerk: Dachfenster, Fassaden, Terrassen, Carports und mehr." />
   <meta name="twitter:image" content="https://mittelstet-bau.github.io/resources/pictures/logo.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
+  <!-- Fonts are self-hosted locally via @font-face in styles.css (DSGVO — no Google Fonts request) -->
   <link rel="stylesheet" href="styles.css" />
 
   <script type="application/ld+json">
@@ -86,6 +83,7 @@
     <a href="#ueber-uns" class="drawer-link">Über&nbsp;uns</a>
     <a href="#kontakt" class="drawer-link">Kontakt</a>
     <a href="impressum.html" class="drawer-link">Impressum</a>
+    <a href="datenschutz.html" class="drawer-link">Datenschutz</a>
   </div>
 </nav>
 
@@ -323,14 +321,9 @@
     </div>
   </section>
 
-  <script
-    src="https://unpkg.com/@formspree/ajax@1.1.5/dist/global.js"
-    integrity="sha384-9fQrvHz7unHjhv7e+pJqhvNxPV4tYHHsSn3PxBIEyPTGY8Q/PAKM1sfhL+zTYmhc"
-    crossorigin="anonymous"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"
-    integrity="sha384-JSZXO0kKYHTylAsDYTb+7Kg2eUyalm19b8Pydcdf8sQ1cCKYZr9lLahoKT9+LFY5"
-    crossorigin="anonymous"></script>
+  <!-- Self-hosted from our own server (DSGVO — no third-party CDN request). @formspree/ajax 1.1.5, canvas-confetti 1.9.4 -->
+  <script src="resources/js/formspree-ajax.min.js"></script>
+  <script src="resources/js/confetti.min.js"></script>
   <script>
     function fireConfetti() {
       if (typeof confetti !== 'function') return;
@@ -365,6 +358,7 @@
       <a href="#ueber-uns">Über uns</a>
       <a href="#kontakt">Kontakt</a>
       <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
     </nav>
     <div class="foot-rule"></div>
     <p class="copy">

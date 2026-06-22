@@ -1,4 +1,87 @@
 /* =============================================================
+   Self-hosted fonts (DSGVO) — Fraunces, IBM Plex Mono, Inter.
+   Served locally from resources/fonts/ (latin subset) so no
+   request ever reaches Google's servers. See datenschutz.html.
+   ============================================================= */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('resources/fonts/fraunces-italic-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('resources/fonts/fraunces-normal-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('resources/fonts/fraunces-normal-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('resources/fonts/fraunces-normal-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('resources/fonts/ibm-plex-mono-normal-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('resources/fonts/ibm-plex-mono-normal-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('resources/fonts/inter-normal-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('resources/fonts/inter-normal-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('resources/fonts/inter-normal-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('resources/fonts/inter-normal-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('resources/fonts/inter-normal-800.woff2') format('woff2');
+}
+
+/* =============================================================
    Mittelstet Bau — Zimmerei & Holzbau
    Atelier / architect's-sheet aesthetic.
    Warm wood palette (extended from the 444363e prototype) +
