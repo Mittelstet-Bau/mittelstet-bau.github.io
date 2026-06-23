@@ -13,6 +13,7 @@
 
   <!-- Fonts are self-hosted locally via @font-face in styles.css (DSGVO — no Google Fonts request) -->
   <link rel="stylesheet" href="styles.css" />
+  <script src="resources/app.js" defer></script>
 </head>
 
 <body>
@@ -178,54 +179,6 @@
     </p>
   </div>
 </footer>
-
-<script>
-  // --- nav shadow on scroll ---
-  (function () {
-    var header = document.getElementById('site-header');
-    if (!header) return;
-    var onScroll = function () {
-      if (window.scrollY > 16) header.classList.add('scrolled');
-      else header.classList.remove('scrolled');
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  })();
-
-  // --- hamburger + drawer (no section pager: Datenschutz is a normal scrolling page) ---
-  (function () {
-    var btn = document.getElementById('hamburger-btn');
-    var drawer = document.getElementById('mobile-drawer');
-    var overlay = document.getElementById('mobile-overlay');
-    var closeBtn = document.getElementById('drawer-close');
-    if (!btn || !drawer || !overlay) return;
-
-    function openDrawer() {
-      document.body.classList.add('drawer-open');
-      btn.setAttribute('aria-expanded', 'true');
-      drawer.setAttribute('aria-hidden', 'false');
-      overlay.setAttribute('aria-hidden', 'false');
-    }
-
-    function closeDrawer() {
-      document.body.classList.remove('drawer-open');
-      btn.setAttribute('aria-expanded', 'false');
-      drawer.setAttribute('aria-hidden', 'true');
-      overlay.setAttribute('aria-hidden', 'true');
-    }
-
-    btn.addEventListener('click', openDrawer);
-    overlay.addEventListener('click', closeDrawer);
-    if (closeBtn) { closeBtn.addEventListener('click', closeDrawer); }
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && document.body.classList.contains('drawer-open')) {
-        closeDrawer();
-        btn.focus();
-      }
-    });
-  })();
-</script>
 
 </body>
 </html>
